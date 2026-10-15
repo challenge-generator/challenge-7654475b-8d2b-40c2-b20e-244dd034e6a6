@@ -1,0 +1,23 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc/shell",
+    "types": []
+  },
+  "files": [
+    "src/main.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
+  ],
+  "exclude": [
+    "src/**/*.test.ts",
+    "src/**/*.spec.ts"
+  ],
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

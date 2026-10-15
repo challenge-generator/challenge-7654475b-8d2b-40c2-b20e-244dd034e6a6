@@ -1,0 +1,50 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2022",
+    "module": "es2022",
+    "useDefineForClassFields": false,
+    "lib": [
+      "es2022",
+      "dom",
+      "dom.iterable"
+    ],
+    "paths": {
+      "@shared/*": [
+        "../shared/*"
+      ],
+      "@shell/*": [
+        "../shell/src/*"
+      ],
+      "@mf-dashboard/*": [
+        "src/*"
+      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true,
+    "allowEmptyCodegenFiles": false
+  },
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "**/*test.ts"
+  ]
+}

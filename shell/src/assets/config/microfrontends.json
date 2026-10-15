@@ -1,0 +1,135 @@
+{
+  "version": "1.0.0",
+  "environment": "development",
+  "timeout": 30000,
+  "retryAttempts": 3,
+  "retryDelay": 1000,
+  "routes": [
+    {
+      "name": "Dashboard",
+      "path": "/dashboard",
+      "remoteEntry": "http://localhost:4201/remoteEntry.js",
+      "exposedModule": "./DashboardModule",
+      "icon": "dashboard",
+      "description": "Vista principal del dashboard con resumen de cuentas y actividad reciente",
+      "routePath": "dashboard",
+      "moduleName": "DashboardModule",
+      "requiresAuth": true,
+      "roles": ["user", "admin"],
+      "loadStrategy": "eager",
+      "priority": 1
+    },
+    {
+      "name": "Cuentas",
+      "path": "/accounts",
+      "remoteEntry": "http://localhost:4202/remoteEntry.js",
+      "exposedModule": "./AccountsModule",
+      "icon": "account_balance",
+      "description": "Gestión integral de cuentas bancarias, consulta de saldo y movimientos",
+      "routePath": "accounts",
+      "moduleName": "AccountsModule",
+      "requiresAuth": true,
+      "roles": ["user", "admin"],
+      "loadStrategy": "lazy",
+      "priority": 2
+    },
+    {
+      "name": "Transferencias",
+      "path": "/transfers",
+      "remoteEntry": "http://localhost:4203/remoteEntry.js",
+      "exposedModule": "./TransfersModule",
+      "icon": "swap_horiz",
+      "description": "Sistema de transferencias internas y externas con validación en tiempo real",
+      "routePath": "transfers",
+      "moduleName": "TransfersModule",
+      "requiresAuth": true,
+      "roles": ["user", "admin"],
+      "loadStrategy": "lazy",
+      "priority": 3
+    },
+    {
+      "name": "Préstamos",
+      "path": "/loans",
+      "remoteEntry": "http://localhost:4204/remoteEntry.js",
+      "exposedModule": "./LoansModule",
+      "icon": "payments",
+      "description": "Gestión de préstamos, simulación de cuotas y seguimiento de pagos",
+      "routePath": "loans",
+      "moduleName": "LoansModule",
+      "requiresAuth": true,
+      "roles": ["user", "admin"],
+      "loadStrategy": "lazy",
+      "priority": 4
+    },
+    {
+      "name": "Inversiones",
+      "path": "/investments",
+      "remoteEntry": "http://localhost:4205/remoteEntry.js",
+      "exposedModule": "./InvestmentsModule",
+      "icon": "trending_up",
+      "description": "Portafolio de inversiones, mercados y seguimiento de rendimientos",
+      "routePath": "investments",
+      "moduleName": "InvestmentsModule",
+      "requiresAuth": true,
+      "roles": ["user", "admin", "investor"],
+      "loadStrategy": "lazy",
+      "priority": 5
+    },
+    {
+      "name": "Tarjetas",
+      "path": "/cards",
+      "remoteEntry": "http://localhost:4206/remoteEntry.js",
+      "exposedModule": "./CardsModule",
+      "icon": "credit_card",
+      "description": "Gestión de tarjetas de crédito y débito, límites y bloqueos",
+      "routePath": "cards",
+      "moduleName": "CardsModule",
+      "requiresAuth": true,
+      "roles": ["user", "admin"],
+      "loadStrategy": "lazy",
+      "priority": 6
+    },
+    {
+      "name": "Soporte",
+      "path": "/support",
+      "remoteEntry": "http://localhost:4207/remoteEntry.js",
+      "exposedModule": "./SupportModule",
+      "icon": "help_outline",
+      "description": "Centro de ayuda, tickets de soporte y chat con asesores",
+      "routePath": "support",
+      "moduleName": "SupportModule",
+      "requiresAuth": false,
+      "roles": ["user", "admin", "guest"],
+      "loadStrategy": "lazy",
+      "priority": 7
+    }
+  ],
+  "shared": {
+    "authService": {
+      "remoteEntry": "http://localhost:4200/remoteEntry.js",
+      "exposedModule": "./AuthService"
+    },
+    "notificationService": {
+      "remoteEntry": "http://localhost:4200/remoteEntry.js",
+      "exposedModule": "./NotificationService"
+    },
+    "theme": {
+      "primaryColor": "#1a237e",
+      "secondaryColor": "#283593",
+      "accentColor": "#ff6f00",
+      "warnColor": "#f44336"
+    }
+  },
+  "fallback": {
+    "enabled": true,
+    "localModules": {
+      "dashboard": "./fallback/dashboard-fallback.component.ts",
+      "accounts": "./fallback/accounts-fallback.component.ts"
+    }
+  },
+  "logging": {
+    "enabled": true,
+    "level": "debug",
+    "includeTimestamp": true
+  }
+}
